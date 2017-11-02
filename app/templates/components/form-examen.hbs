@@ -1,0 +1,24 @@
+<form {{action 'save' on='submit'}}>
+
+nombre
+{{input type='text' value=examen.nombre}}
+
+fecha
+{{input type='date' value=examen.fecha}}
+
+
+<p>Introduce las preguntas</p>
+<button type="button" {{action 'saveQuestion'}}>Agregar pregunta</button>
+
+<ul>
+	{{#each examen.preguntas as |a|}}
+		<li>
+			{{eliminar-question question=a}}
+		</li>
+	{{/each}}
+</ul>
+<hr>
+
+<button>Guardar</button>
+
+</form>

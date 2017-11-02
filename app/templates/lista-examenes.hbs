@@ -1,0 +1,14 @@
+<ul>
+	<h1> Lista de examenes</h1>
+	{{#each model as |examen|}}
+		{{!--  --}}
+		<li>
+			{{#link-to 'examen-detalle' examen.id tagName='button'}}
+				{{examen.nombre}}
+			{{/link-to}}
+		</li>
+	{{/each}}
+</ul>
+
+
+

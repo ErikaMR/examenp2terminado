@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('lista-examenes', {path: '/'});
+  this.route('nuevo-examen');
+  this.route('examen-detalle', {path: 'examen-detalle/:exam'});
 });
 
 export default Router;

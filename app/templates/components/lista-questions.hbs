@@ -1,0 +1,7 @@
+<div class="panel-group">
+
+	{{#each lista as |item|}}
+		{{question-item question=item selectQuestion=(action 'selectQuestion')}}
+	{{/each}}
+
+</div>
