@@ -1,4 +1,4 @@
-<form {{action 'save' on='submit'}}>
+<form {{action 'save' on='submit'}} >
 
 nombre
 {{input type='text' value=examen.nombre}}
@@ -7,11 +7,29 @@ fecha
 {{input type='date' value=examen.fecha}}
 
 
-<p>Introduce las preguntas</p>
+<b><p>Introduce las preguntas:</p></b>
 <button type="button" {{action 'saveQuestion'}}>Agregar pregunta</button>
 
 <ul>
 	{{#each examen.preguntas as |a|}}
+		{{#if a.isNew}}
+		{{form-pregunta question=a examen=examen}}
+		{{else}}
+		<div>
+			<b>Pregunta:</b> 
+			<br>
+			{{a.nombre}}
+			<br>
+			<br>
+			Respuestas:<br><br>
+			<ul>
+				{{#each a.options as |option index|}}
+				<li>{{option.nombre}}, es una respuesta {{if option.correcto 'CORRECTA' 'INCORRECTA'}}</li>
+				<br>
+				{{/each}}
+			</ul>
+		</div>
+		{{/if}}
 		<li>
 			{{eliminar-question question=a}}
 		</li>
@@ -19,6 +37,10 @@ fecha
 </ul>
 <hr>
 
+
 <button>Guardar</button>
 
+<b> {{#link-to 'lista-examenes'}}<button>Regresar al inicio</button>{{/link-to}} </b> 
+
 </form>
+

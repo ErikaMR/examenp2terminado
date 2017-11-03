@@ -1,0 +1,15 @@
+
+Pregunta
+{{input value=question.nombre}}<br>
+{{#each question.options as |option|}}
+    Respuesta: 
+    {{input value=option.nombre}}
+    Marca la respuesta correcta
+    {{input type="checkbox" name="correcto" checked=option.correcto}}<br>
+
+{{/each}}
+<button {{action 'savePregunta'}}>Guardar pregunta</button>
+
+
+
+

@@ -1,14 +1,22 @@
-<ul>
-	<h1> Lista de examenes</h1>
+<ul> 
+	<h1>Lista de exámenes</h1>
 	{{#each model as |examen|}}
-		{{!--  --}}
 		<li>
 			{{#link-to 'examen-detalle' examen.id tagName='button'}}
-				{{examen.nombre}}
+				<b>{{examen.nombre}}</b>
+				<br>
+				Fecha <i>{{examen.fecha}}</i>
 			{{/link-to}}
 		</li>
+		{{#link-to 'examen-detalle' examen.id}}<button>Ver</button>{{/link-to}}
+		<button {{action 'borrarExamen' examen}} > Borrar</button>
 	{{/each}}
+	<br>
+	<br>
+	<br>
+	<b> {{#link-to 'nuevo-examen'}}<button>Crear examen</button>{{/link-to}} </b>
 </ul>
+
 
 
 
